@@ -7,6 +7,8 @@ import { MostrarPersonaComponent } from './Persona/mostrar-persona/mostrar-perso
 import { InsertarPersonaComponent } from './Persona/insertar-persona/insertar-persona.component';
 import { MostrarPersonasComponent } from './Persona/mostrar-personas/mostrar-personas.component';
 import { EditarPersonaComponent } from './Persona/editar-persona/editar-persona.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,7 +22,10 @@ import { EditarPersonaComponent } from './Persona/editar-persona/editar-persona.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,18 @@
-<p>editar-persona works!</p>
+<h2 class="h2 text-center my-4">Editar datos de  {{persona.nombre}} </h2>
+<form (ngSubmit)="actualizar()" >
+<div class="input-group my-4">
+  <label for="dni" class="input-group-text">DNI:</label>
+  <input type="number" required [(ngModel)]="persona.dni"  name="dni" class="form-control" id="dni" value="{{persona.dni}}">
+</div>
+
+<div class="input-group my-4">
+  <label for="nombre" class="input-group-text">Nombre: </label>
+  <input type="text" required  name="nombre" id="nombre" [(ngModel)]="persona.nombre" class="form-control" value="{{persona.nombre}}">
+</div>
+
+<div class="input-group ">
+  <a class="btn btn-secondary form-control my-4 mx-4" routerLink="/persona">  <i class="bi bi-arrow-left"></i>  Volver</a> 
+  <button type="submit"  class="btn btn-warning mx-4 form-control my-4 ">Actualizar  <i class="bi bi-arrow-repeat"></i></button>
+</div>
+</form>
+

@@ -1,1 +1,17 @@
-<p>insertar-persona works!</p>
+<form (ngSubmit)="guardar()" >
+          <h2 class="h2 text-center my-4">Insertar Persona</h2>
+    <div class="input-group my-4">
+        <label for="dni" class="input-group-text">DNI:</label>
+        <input type="number" required [(ngModel)]="persona.dni" name="dni" class="form-control" id="dni">
+    </div>
+
+    <div class="input-group my-4">
+        <label for="nombre" class="input-group-text">Nombre: </label>
+        <input type="text" required [(ngModel)]="persona.nombre" name="nombre" id="nombre" class="form-control">
+    </div>
+    
+    <div class="input-group ">
+        <a class="btn btn-secondary form-control my-4 mx-4" routerLink="/persona">  <i class="bi bi-arrow-left"></i>  Volver</a> 
+        <button type="submit"  class="btn btn-success mx-4 form-control my-4 ">Insertar  <i class="bi bi-plus-circle"></i></button>
+    </div>
+</form>

@@ -1,1 +1,21 @@
-<p>mostrar-persona works!</p>
+<h2 class="text-center h2 text-dark my-4">Detalles de {{persona.nombre}} </h2>
+
+<table class="table table-info">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>DNI</th>
+            <th>Nombre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr >
+            <td>{{persona.id}}</td>
+            <td>{{persona.dni}}</td>
+            <td>{{persona.nombre}}</td>
+           
+        </tr>
+    </tbody>
+</table>
+
+<a routerLink="/persona" class="btn btn-secondary form-control"><i class="bi bi-arrow-left"></i>   Volver</a>
