@@ -18,6 +18,10 @@ export class AppComponent {
   create(){
     this.router.navigate(["persona/crear"])
   }
+
+  datatable(){
+    this.router.navigate(["datatable"])
+  }
   
 }
 

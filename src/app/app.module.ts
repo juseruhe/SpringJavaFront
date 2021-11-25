@@ -9,6 +9,7 @@ import { MostrarPersonasComponent } from './Persona/mostrar-personas/mostrar-per
 import { EditarPersonaComponent } from './Persona/editar-persona/editar-persona.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import { PersonaComponent } from './DataTable/persona/persona.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { FormsModule,ReactiveFormsModule } from '@angular/forms';
     InsertarPersonaComponent,
     MostrarPersonasComponent,
     EditarPersonaComponent,
+    PersonaComponent,
     
   ],
   imports: [
