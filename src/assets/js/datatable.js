@@ -94,7 +94,7 @@ $(document).ready(function () {
 
         $('#formEditar').submit(function (e) { 
             e.preventDefault();
-            
+        
             $.ajax({
                 type: "put",
                 url: "http://localhost:8080/SpringAngular/personas/"+id,
