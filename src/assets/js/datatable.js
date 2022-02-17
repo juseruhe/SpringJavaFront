@@ -110,7 +110,7 @@ $(document).ready(function () {
         });
  });
 
- $(document).on("click", ".btn-danger",function () {
+ $(document).on("click", "#eliminar",function () {
     fila = $(this).closest("tr")
     id= fila.find('td:eq(0)').text()
     nombre = fila.find('td:eq(2)').text()
