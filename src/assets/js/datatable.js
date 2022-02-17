@@ -71,6 +71,7 @@ $(document).ready(function () {
                 $('#mostrarId').html(response.id);
                 $('#mostrarDni').html(response.dni)
                 $('#mostrarNombre').html(response.nombre)
+                $('#mostrarTituloNombre').html("Datos de "+response.nombre)
             }
         });
      
@@ -87,6 +88,7 @@ $(document).ready(function () {
 
         $('#editarDni').val(dni)
         $('#editarNombre').val(nombre)
+        $('#editarTitulo').html('Editar Datos de '+nombre)
 
         $('#editarModal').modal('show')
 
