@@ -5,8 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Persona } from 'src/app/Modelo/Persona';
 import { XLSX$Consts } from 'xlsx';
 import { XLSX$Utils } from 'xlsx';
-import * as XLSX from 'xlsx';
-
+import * as xlsx from 'xlsx';
 
 @Component({
   selector: 'app-mostrar-personas',
@@ -16,6 +15,7 @@ import * as XLSX from 'xlsx';
 export class MostrarPersonasComponent implements OnInit {
   personas: any;
   persona: Persona = new Persona();
+  datos: any
 
   constructor(private service: PersonaService, private router: Router) { }
 
@@ -47,15 +47,54 @@ export class MostrarPersonasComponent implements OnInit {
     });
   }
 
+  // Exportar Excel con SheetJS
   exportarPersonas(): void {
     let tabla = document.getElementById("tabla_excel")
-    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(tabla)
+    const hoja: xlsx.WorkSheet = xlsx.utils.table_to_sheet(tabla)
 
-    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    const libro: xlsx.WorkBook = xlsx.utils.book_new();
 
-    XLSX.utils.book_append_sheet(wb, ws, 'Personas')
+    xlsx.utils.book_append_sheet(libro, hoja, 'Personas')
 
-    XLSX.writeFile(wb, "PersonasAPI.xlsx")
+    xlsx.writeFile(libro, "PersonasAPI.xlsx")
+  }
+
+  leerArchivo(event: any) {
+
+    //Conectar con el lector de archivos
+    const target: DataTransfer = <DataTransfer>(event.target);
+    if (target.files.length !== 1) {
+      throw new Error('No puede usar múltiples archivos');
+    }
+    const lector: FileReader = new FileReader();
+    lector.readAsBinaryString(target.files[0]);
+    lector.onload = (e: any) => {
+
+      // Leer libro
+      const stringBinario: string = e.target.result;
+      const libro: xlsx.WorkBook = xlsx.read(stringBinario, { type: 'binary' });
+
+      // Seleccionar primera hoja
+      const nombreHoja: string = libro.SheetNames[0];
+      const hoja: xlsx.WorkSheet = libro.Sheets[nombreHoja];
+
+      // Guardar datos
+      const datos = xlsx.utils.sheet_to_json(hoja);
+      console.log(datos)
+       
+    };
+  }
+
+  insertarPersonas(){ 
+    console.log(typeof(this.datos))
+
+    this.service.createPersona(this.datos).subscribe(data => {
+      alert("datos insertados")
+      this.router.navigate(["persona"])
+    },error => {
+        alert("Hay un error")
+        console.log(error)
+    })
   }
 
 }

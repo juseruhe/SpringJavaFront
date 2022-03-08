@@ -21,13 +21,15 @@ import { PersonaComponent } from './DataTable/persona/persona.component';
     EditarPersonaComponent,
     PersonaComponent,
     
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent]

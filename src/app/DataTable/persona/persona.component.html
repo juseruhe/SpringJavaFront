@@ -36,6 +36,43 @@
 <!-- Botón llamar Modal-->
 <button class="btn btn-success form-control my-4" id="crear">Insertar Persona   <i class="bi bi-plus-circle"></i> </button>
 
+<!-- Exportar Excel-->
+<button (click)="exportarPersonas()" class="btn btn-success my-4">
+  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 172 172"
+      style=" fill:#000000;">
+      <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+          stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+          font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+          <path d="M0,172v-172h172v172z" fill="none"></path>
+          <g fill="#ffffff">
+              <path
+                  d="M84.09994,138.96256c0.50381,0.50416 1.18732,0.78742 1.90006,0.78742c0.71274,0 1.39626,-0.28326 1.90006,-0.78742l43,-43c0.50422,-0.50377 0.78753,-1.1873 0.78753,-1.90006c0,-0.71276 -0.28331,-1.39629 -0.78753,-1.90006l-13.4375,-13.4375c-0.50377,-0.50422 -1.1873,-0.78753 -1.90006,-0.78753c-0.71276,0 -1.39629,0.28331 -1.90006,0.78753l-14.22494,14.22467v-90.26211c0,-1.48427 -1.20323,-2.6875 -2.6875,-2.6875h-21.5c-1.48427,0 -2.6875,1.20323 -2.6875,2.6875v90.26211l-14.22494,-14.22467c-0.50377,-0.50422 -1.1873,-0.78753 -1.90006,-0.78753c-0.71276,0 -1.39629,0.28331 -1.90006,0.78753l-13.4375,13.4375c-0.50422,0.50377 -0.78753,1.1873 -0.78753,1.90006c0,0.71276 0.28331,1.39629 0.78753,1.90006z">
+              </path>
+              <path
+                  d="M169.3125,129h-18.8125c-1.48427,0 -2.6875,1.20323 -2.6875,2.6875v18.8125h-123.625v-18.8125c0,-1.48427 -1.20323,-2.6875 -2.6875,-2.6875h-18.8125c-1.48427,0 -2.6875,1.20323 -2.6875,2.6875v37.625c0,1.48427 1.20323,2.6875 2.6875,2.6875h166.625c1.48427,0 2.6875,-1.20323 2.6875,-2.6875v-37.625c0,-1.48427 -1.20323,-2.6875 -2.6875,-2.6875z">
+              </path>
+          </g>
+      </g>
+  </svg>
+  Descargar Personas
+  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25" height="25" viewBox="0 0 172 172"
+      style=" fill:#000000;">
+      <g transform="">
+          <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+              stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+              font-family="none" font-weight="none" font-size="none" text-anchor="none"
+              style="mix-blend-mode: normal">
+              <path d="M0,172v-172h172v172z" fill="none"></path>
+              <g id="original-icon" fill="#ffffff">
+                  <path
+                      d="M99.115,0.1075l-96.32,18.275c-1.62594,0.30906 -2.795,1.78719 -2.795,3.44v128.355c0,1.65281 1.16906,3.13094 2.795,3.44l96.32,18.275c0.215,0.04031 0.43,0.1075 0.645,0.1075c0.79281,0 1.53188,-0.24187 2.15,-0.7525c0.79281,-0.65844 1.29,-1.66625 1.29,-2.6875v-165.12c0,-1.02125 -0.49719,-2.02906 -1.29,-2.6875c-0.79281,-0.65844 -1.78719,-0.83312 -2.795,-0.645zM110.08,20.64v24.08h6.88v6.88h-6.88v17.2h6.88v6.88h-6.88v17.2h6.88v6.88h-6.88v20.64h6.88v6.88h-6.88v24.08h51.6c3.78938,0 6.88,-3.09062 6.88,-6.88v-116.96c0,-3.78937 -3.09062,-6.88 -6.88,-6.88zM123.84,44.72h27.52v6.88h-27.52zM23.005,53.965h17.63l9.245,19.2425c0.72563,1.51844 1.37063,3.38625 1.935,5.4825h0.1075c0.36281,-1.24969 1.06156,-3.21156 2.0425,-5.6975l10.2125,-19.0275h16.125l-19.2425,31.82l19.78,32.465h-17.0925l-11.18,-20.9625c-0.41656,-0.77937 -0.84656,-2.21719 -1.29,-4.3h-0.1075c-0.215,0.98094 -0.72562,2.51281 -1.505,4.515l-11.18,20.7475h-17.2l20.5325,-32.1425zM123.84,68.8h27.52v6.88h-27.52zM123.84,92.88h27.52v6.88h-27.52zM123.84,120.4h27.52v6.88h-27.52z">
+                  </path>
+              </g>
+              <path d="" fill="none"></path>
+          </g>
+      </g>
+  </svg>
+</button>
 
 <!-- DataTable-->
 <table class="table table-info" id="tabla">
@@ -58,6 +95,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        
         <table class="table table-info" >
           <thead>
               <tr>

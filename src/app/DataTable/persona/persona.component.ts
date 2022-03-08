@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-persona',
@@ -11,5 +12,18 @@ export class PersonaComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  // Exportar Excel con SheetJS
+  exportarPersonas(): void {
+    let tabla = document.getElementById("tabla")
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(tabla)
+
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+
+    XLSX.utils.book_append_sheet(wb, ws, 'Personas')
+
+    XLSX.writeFile(wb, "PersonasAPI.xlsx")
+  }
+
 
 }

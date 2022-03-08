@@ -35,6 +35,11 @@
     </svg>
 </button>
 
+<form (ngSubmit)="insertarPersonas()"  >
+    <input (change)="leerArchivo($event)" type="file" name="" id="" required>
+    <button type="submit">Importar</button>
+</form>
+
 <table class="table table-info" id="tabla_excel">
     <thead>
         <tr>
