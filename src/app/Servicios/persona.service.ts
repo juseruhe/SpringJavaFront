@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Persona } from '../Modelo/Persona';
 import { Observable } from 'rxjs';
 import { saveAs } from 'file-saver'; 
 import * as xlsx from 'xlsx';
+
 
 @Injectable({
   providedIn: 'root'
@@ -14,13 +15,13 @@ export class PersonaService {
 
   url = "http://localhost:8080/SpringAngular/personas";
   personas: any;
-  
+
   getPersonas() {
     return this.http.get(this.url);
   }
 
   createPersona(persona: Persona) {
-    return this.http.post(this.url, persona);
+    return this.http.post(this.url,persona);
   }
 
   mostrarPersona(id: any) {

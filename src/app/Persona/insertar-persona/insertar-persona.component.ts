@@ -17,7 +17,6 @@ export class InsertarPersonaComponent implements OnInit {
   }
 
   guardar(){
-    console.log(this.persona)
    this.servicio.createPersona(this.persona).subscribe(data =>{
      alert("Datos Insertados a la base de datos")
      this.ruta.navigate(["persona"]);

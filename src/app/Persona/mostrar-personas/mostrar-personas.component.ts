@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PersonaService } from 'src/app/Servicios/persona.service';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Persona } from 'src/app/Modelo/Persona';
 import { XLSX$Consts } from 'xlsx';
 import { XLSX$Utils } from 'xlsx';
 import * as xlsx from 'xlsx';
+
 
 @Component({
   selector: 'app-mostrar-personas',
@@ -79,11 +80,13 @@ export class MostrarPersonasComponent implements OnInit {
       const hoja: xlsx.WorkSheet = libro.Sheets[nombreHoja];
 
       // Guardar datos
-      const datos = xlsx.utils.sheet_to_json(hoja);
-      console.log(datos)
-       
+      const datos = xlsx.utils.sheet_to_json(hoja)
+
+      this.datos = JSON.stringify(datos)
+      
     };
   }
+
 
   insertarPersonas(){ 
     console.log(typeof(this.datos))
